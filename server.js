@@ -5,6 +5,12 @@ const toDoTaskSchema = require("./models/to-do-task");
 const cors = require("cors");
 require("dotenv").config();
 
+app.set("view engine", "ejs");
+app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(cors());
+
 mongoose
     .connect(process.env.DB_CONNECTION, { useNewUrlParser: true })
     .then(() => {
@@ -13,12 +19,6 @@ mongoose
     .catch((err) => {
         console.log(err);
     });
-
-app.set("view engine", "ejs");
-app.use(express.static("public"));
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(cors());
 
 app.get("/", async (req, res) => {
     try {
