@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <link rel="stylesheet" href="/style.css" />
+    </head>
+    <body>
+        <main class="hero">
+            <section class="mainSection">
+                <section class="userInputSection">
+                    <h1>To do tasks</h1>
+                    <section class="titleForm">
+                        <h2>title</h2>
+                        <input type="text" />
+                    </section>
+                    <section class="contentForm">
+                        <h2>content</h2>
+                        <input type="text" />
+                    </section>
+                    <button class="addTask">
+                        <i class="fas-light fa-plus"></i>
+                        <span>Add Task</span>
+                    </button>
+                </section>
+                <section class="toDoList">
+                    <ul>
+                        <% todoTasks.forEach( task => { %>
+                        <li class="taskItem">
+                            <section class="cont">
+                                <h3 class="taskTitle"><%= task.title %></h3>
+                                <p class="taskContent"><%= task.content %></p>
+                            </section>
+                            <button
+                                class="delete fa-solid fa-trash"
+                                id="<%=task._id%>"
+                            ></button>
+                        </li>
+                        <% }) %>
+                    </ul>
+                </section>
+            </section>
+        </main>
+        <script src="/main.js"></script>
+    </body>
+</html>
